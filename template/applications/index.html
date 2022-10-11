@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'applications/applications.css' %}">
+</head>
+<body>
+    <div class="add_candidate">
+            <a href="{% url 'create' %}"> <button>Add Candidate</button></a>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Candidate name</th>
+                <th>Email</th>
+                <th>Applied for role</th>
+                <th>Applied on</th>
+                <th>Status</th>
+                <th>View</th>
+                <th>Resume</th>
+            </tr>
+            {% for c in candidates %}
+                <tr>
+                    <td>{{c.first_name}} {{c.last_name}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.role}}</td>
+                    <td>{{c.applied_on}}</td>
+                    <td>{% if c.status == "Accepted" %}
+                        <span id="accepted">{{c.status}}</span>
+                        {% else %}
+                        <span id="rejected">{{c.status}}</span>
+                        {% endif %}
+                    </td>
+                    <td><a href="{% url 'description' c.id %}">click</a></td>
+                    <td><a href="{{c.resume.url}}">{{c.resume}}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

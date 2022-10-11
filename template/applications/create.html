@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add candidate</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'applications/applications.css' %}">
+    <script type="text/javascript" src="{% static 'applications/create.js' %}"></script>
+</head>
+<body>
+        <div class="job_application_form_heading"><h2>Job Application Form</h2></div>
+        <form method="post" enctype="multipart/form-data" class="job_application_form">
+            {% csrf_token %}
+            <span>
+                <h3>Your Resume: <input type="file" name="resume"></h3>
+            </span>
+            <div>
+                <h3>Personal Information</h3>
+                <label>First Name: </label>
+                <input type="text" name="first_name"><br>
+                <label>Last Name: </label>
+                <input type="text" name="last_name"><br>
+                <label>Phone: </label>
+                <input type="number" name="phone"><br>
+                <label>Gender: </label>
+                <select name="gender">
+                    <option>-- Select gender --</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Prefer not to disclose</option>
+                </select><br>
+                <label>Address: </label>
+                <input type="text" name="address"><br>
+                <label>Country: </label>
+                <select id="Country" size="1">
+                 <option value="" selected="selected">-- Select Country --</option>
+                </select><br>
+                <label>State: </label>
+                <select id="State" size="1">
+                 <option value="" selected="selected">-- Select State --</option>
+                </select><br>
+                <label>City: </label>
+                <select id="City" size="1">
+                 <option value="" selected="selected">-- Select City --</option>
+                </select><br>
+                <label>Postal code: </label>
+                <select id="Zip" size="1">
+                 <option value="" selected="selected">-- Select Postal code --</option>
+                </select><br>
+                <label>Email: </label>
+                <input type="email" name="email"><br>
+                <label>Role: </label>
+                <input type="text" name="role"><br>
+            </div>
+            <div>
+                <h3>Education</h3>
+                <div id="education">
+                    <label>Institute: </label>
+                    <input type="text" name="institute1">
+                    <label>Degree: </label>
+                    <select name="degree1">
+                       <option>-- Select Degree --</option>
+                       <option>Associate Degree</option>
+                       <option>Bachelor's Degree</option>
+                       <option>Master's Degree</option>
+                       <option>Doctoral Degree</option>
+                    </select>
+                    <label>Course: </label>
+                    <input type="text" name="course1">
+                    <label >Start Date: </label>
+                    <input type="date" name="start_date1">
+                    <label >End Date: </label>
+                    <input type="date" name="end_date1">
+                    <br>
+                </div>
+                <input class="add_button" type="button" onclick="add_education()" value="Add">
+            </div>
+            <div>
+                <h3>Experience</h3>
+                <div id="experience">
+                    <label>Company: </label>
+                    <input type="text" name="company1">
+                    <label>Role: </label>
+                    <input type="text" name="role1">
+                    <label >Start Date: </label>
+                    <input type="date" name="start_date1">
+                    <label >End Date: </label>
+                    <input type="date" name="end_date1">
+                    <label>Responsibilities: </label>
+                    <textarea name="responsibilities1"></textarea>
+                    <br>
+                </div>
+                <input class="add_button" type="button" onclick="add_experience()" value="Add">
+            </div>
+            <div>
+                <div id="skills">
+                    <h3>Skills</h3>
+                    <input name="skill1">
+                    <br>
+                </div>
+                <input class="add_button" type="button" onclick="add_skills()" value="Add">
+            </div>
+            <input id="form_submit" type="submit" value="submit">
+        </form>
+</body>
+</html>

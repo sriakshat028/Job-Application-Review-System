@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'applications/applications.css' %}">
+</head>
+<body>
+    <h2 id="review_application_heading">Review Application - {{candidate.role}}</h2>
+    <div>
+        <h3 class="description_subheading">Personal Information</h3>
+        <table>
+            <tr>
+                <td class="row_name">First Name</td>
+                <td>{{candidate.first_name}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Last Name</td>
+                <td>{{candidate.last_name}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Email</td>
+                <td>{{candidate.email}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Address</td>
+                <td>{{candidate.address}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Country</td>
+                <td>{{candidate.country}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">State</td>
+                <td>{{candidate.state}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">City</td>
+                <td>{{candidate.city}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Postal code/ZIP</td>
+                <td>{{candidate.postal_code}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Phone</td>
+                <td>{{candidate.phone}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Gender</td>
+                <td>{{candidate.gender}}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h3 class="description_subheading">Education history</h3>
+        {% for edu in candidate.education.all %}
+        <span class="field_count"><h4>Education {{ forloop.counter }}</h4></span>
+        <table>
+            <tr>
+                <td class="row_name">Institute</td>
+                <td>{{edu.institute}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Degree</td>
+                <td>{{edu.degree}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Course</td>
+                <td>{{edu.course}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Start Date</td>
+                <td>{{edu.start_date}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">End Date</td>
+                <td>{{edu.end_date}}</td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+    <div>
+        <h3 class="description_subheading">Work experience</h3>
+        {% for exp in candidate.experience.all %}
+        <span class="field_count"><h4>Experience {{ forloop.counter }}</h4></span>
+        <table>
+            <tr>
+                <td class="row_name">Company</td>
+                <td>{{exp.company}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Role</td>
+                <td>{{exp.role}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Start Date</td>
+                <td>{{exp.start_date}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">End Date</td>
+                <td>{{exp.end_date}}</td>
+            </tr>
+            <tr>
+                <td class="row_name">Responsibilities</td>
+                <td>{{exp.responsibilities}}</td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+    <div>
+        <h3 class="description_subheading">Skills</h3>
+        {% for skill in candidate.skills.all %}
+        <ul>
+          <li>{{skill.skill}}</li>
+        </ul>
+        {% endfor %} 
+    </div>
+    <div class="ac_or_rj">
+        <form method="post" action="">
+            {% csrf_token %}
+            <input id="description_accepted" type="submit" value="Accept" name="accept">
+            <input id="description_rejected" type="submit" value="Reject" name="reject">
+        </form>
+    </div>
+</body>
+</html>
