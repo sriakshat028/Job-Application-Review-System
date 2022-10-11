@@ -1,3 +1,133 @@
 *{
-    background-color: aqua;
+    margin: 0;
+    padding: 0;
+}
+.add_candidate{
+   padding-top: 30px;
+   padding-left: 48%;
+   padding-bottom: 30px;
+}
+.add_candidate button{
+    background:none;
+    padding: 5px;
+    border: none;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+tr{
+    border: 1px solid black;
+}
+tr:hover{
+    background-color:#cec9c9;
+}
+th{
+    background-color: grey;
+    padding: 3px;
+    color: white;
+}
+td{
+    text-align: center;
+    padding: 3px;
+    border: 1px solid black;
+}
+a{
+    text-decoration: none;
+}
+#accepted{
+    color: rgb(1, 216, 1);
+}
+#rejected{
+    color: red;
+}
+#review_application_heading{
+    padding-top:20px;
+    padding-bottom: 20px;
+    margin-left: 35%;
+}
+.description_subheading{
+    border: 1px solid black;
+    background-color: gray;
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+.row_name{
+    background-color: #cec9c9;
+}
+.field_count{
+    margin-left: 5px;
+}
+li{
+    padding-left: 5px;
+}
+.ac_or_rj{
+   padding: 10px;
+   margin-left: 46%;
+}
+.ac_or_rj input{
+    margin: 10px;
+    background: none;
+    border: none;
+    border: 1px solid black;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#description_accepted{
+    background-color: green;
+    color: white;
+}
+#description_rejected{
+    background-color: red;
+    color: white;
+}
+.job_application_form_heading{
+    border: 1px solid black;
+    margin: 5% 5% 0% 5%;
+    background-color: gray;
+}
+.job_application_form_heading h2{
+    text-align: center;
+    color: white;
+    padding: 5px;
+}
+.job_application_form{
+    border: 1px solid black;
+    margin: 0% 5% 5% 5%;
+}
+.job_application_form span h3{
+    margin: 10px;
+}
+.job_application_form div h3{
+    margin: 10px;
+    background-color: #cec9c9;
+    padding: 3px;
+    text-align: center;
+}
+.job_application_form div label,input,select{
+    margin: 4px 0px 4px 10px;
+}
+.add_button{
+    background: none;
+    padding: 4px;
+    border: none;
+    border: 1px solid black;
+    border-radius: 7px;
+    background-color: #cec9c9;
+}
+#form_submit{
+   margin-left: 48.5%;
+   background: none;
+   border: none;
+   border: 1px solid black;
+   padding: 3px;
+   border-radius: 7px;
+   background-color: #cec9c9;
 }
